@@ -110,11 +110,6 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
           Book Workspace Now
         </Button>
       </form>
-
-      <p className="text-center text-[11px] text-gray-400">
-        Opens the booking confirmation modal. Overlapping confirmed slots are
-        rejected.
-      </p>
     </div>
   );
 }
