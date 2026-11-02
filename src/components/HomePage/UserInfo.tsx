@@ -123,7 +123,7 @@ export default function UserInfo() {
 
           <DropdownMenuItem className="p-0 focus:bg-transparent">
             <Link
-              href="/my-bookings"
+              href="/my-booking"
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/my-bookings")
                   ? "bg-amber-500 text-black font-semibold"

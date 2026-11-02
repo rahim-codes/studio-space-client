@@ -2,33 +2,81 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 interface BookingWidgetProps {
   studio: {
-    _id: string;
+    title: string;
     price: number;
     securityDeposit: number;
   };
 }
 
 export default function BookingWidget({ studio }: BookingWidgetProps) {
+  const { data: session } = authClient.useSession();
+  const user = session?.user;
+
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [hours, setHours] = useState(2); // Default 2 hours
+  const [loading, setLoading] = useState(false);
 
   // Calculations
   const subtotal = studio.price * hours;
   const total = subtotal + studio.securityDeposit;
 
-  const handleBooking = (e: React.FormEvent) => {
+  const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!date || !startTime) {
       toast.error("Please select date and start time.");
       return;
     }
-    toast.success("Workspace booking request submitted successfully!");
+
+    setLoading(true);
+
+    const bookingPayload = {
+      title: studio.title,
+      price: studio.price,
+      securityDeposit: studio.securityDeposit,
+      date,
+      startTime,
+      hours,
+      totalAmount: total,
+      // User information (Logged-in user context)
+      userInfo: {
+        userName: user?.name,
+        userEmail: user?.email,
+      },
+    };
+
+    try {
+      const res = await fetch("http://localhost:8000/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingPayload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Workspace booking request submitted successfully!");
+        // Form reset
+        setDate("");
+        setStartTime("");
+      } else {
+        toast.error(data.message || "Failed to book workspace.");
+      }
+    } catch (error) {
+      console.error("Booking submit error:", error);
+      toast.error("Something went wrong while booking.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -105,9 +153,10 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
         {/* Submit Button */}
         <Button
           type="submit"
+          disabled={loading}
           className="w-full h-12 bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold rounded-xl text-sm transition-all shadow-none cursor-pointer"
         >
-          Book Workspace Now
+          {loading ? "Booking Workspace..." : "Book Workspace Now"}
         </Button>
       </form>
     </div>

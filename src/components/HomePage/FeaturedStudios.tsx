@@ -28,9 +28,6 @@ export default async function FeaturedStudios() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
             Featured Studios
           </h2>
-          <p className="text-gray-500 text-sm sm:text-base mt-1">
-            Six top-rated and newest spaces, pulled live from the database.
-          </p>
         </div>
 
         {/* Studio Cards Grid */}

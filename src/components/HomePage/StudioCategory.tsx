@@ -1,42 +1,43 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 // Category Data Array
 const categories = [
   {
     id: 1,
-    title: "Photo Studios",
+    title: "Photo Studio",
     subtitle: "Browse spaces",
-    image: "/images/photo-studios.jpg", // public folder er image path
-    href: "#",
+    image: "/images/photo-studios.jpg",
+    href: `/category/${encodeURIComponent("Photo Studio")}`,
   },
   {
     id: 2,
-    title: "Sound Stages",
+    title: "Film Stage",
     subtitle: "Browse spaces",
     image: "/images/sound-stages.jpg",
-    href: "#",
+    href: `/category/${encodeURIComponent("Film Stage")}`,
   },
   {
     id: 3,
-    title: "Podcast Rooms",
+    title: "Podcast Lounge",
     subtitle: "Browse spaces",
     image: "/images/podcast-rooms.jpg",
-    href: "#",
+    href: `/category/${encodeURIComponent("Podcast Lounge")}`,
   },
   {
     id: 4,
-    title: "Music Suites",
+    title: "Music Suite",
     subtitle: "Browse spaces",
     image: "/images/music-suites.jpg",
-    href: "#",
+    href: `/category/${encodeURIComponent("Music Suite")}`,
   },
   {
     id: 5,
-    title: "Art Workshops",
+    title: "Workshop",
     subtitle: "Browse spaces",
     image: "/images/art-workshops.jpg",
-    href: "#",
+    href: `/category/${encodeURIComponent("Workshop")}`,
   },
 ];
 
@@ -57,7 +58,11 @@ export default function StudioCategories() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {categories.map((category) => (
-            <a key={category.id} href={category.href} className="group block">
+            <Link
+              key={category.id}
+              href={category.href}
+              className="group block"
+            >
               <Card className="relative h-60 sm:h-72 overflow-hidden rounded-2xl border-none shadow-md transition-all duration-300 group-hover:scale-[1.02]">
                 {/* Background Image */}
                 <Image
@@ -80,7 +85,7 @@ export default function StudioCategories() {
                   </p>
                 </CardContent>
               </Card>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
