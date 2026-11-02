@@ -25,7 +25,7 @@ const steps = [
 
 export default function HowBookingWorks() {
   return (
-    <section className="py-16 px-6 lg:px-20 bg-white">
+    <section id="how-it-works" className="py-16 px-6 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Section Header */}
         <div className="space-y-2">

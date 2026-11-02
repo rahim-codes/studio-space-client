@@ -1,9 +1,12 @@
+"use client";
+
 import UserInfo from "@/components/HomePage/UserInfo";
 import LoadingFallback from "@/components/shared/LoadingFallback";
 import { Button } from "@/components/ui/button";
 import { cn } from "cn";
 import { Globe } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 
 export function BasketballIcon({ className }: { className?: string }) {
@@ -25,13 +28,14 @@ export function BasketballIcon({ className }: { className?: string }) {
 }
 
 const navLinks = [
-  { href: "/", label: "Home", active: true },
+  { href: "/", label: "Home" },
   { href: "/explore-studio", label: "Explore Studios" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/about", label: "About Us" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#about", label: "About Us" },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0B1120]">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -43,20 +47,24 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                link.active
-                  ? "border-b-2 border-amber-500 pb-0.5 text-amber-500"
-                  : "text-slate-200 hover:text-white",
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium transition-colors",
+                  isActive
+                    ? "border-b-2 border-amber-500 pb-0.5 text-amber-500"
+                    : "text-slate-200 hover:text-white",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">

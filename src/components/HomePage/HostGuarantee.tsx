@@ -21,7 +21,7 @@ const guarantees = [
 
 export default function HostGuarantee() {
   return (
-    <section className="bg-[#0b0f17] text-white py-16 px-6 lg:px-20">
+    <section id="about" className="bg-[#0b0f17] text-white py-16 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Section Header */}
         <div className="space-y-2">
