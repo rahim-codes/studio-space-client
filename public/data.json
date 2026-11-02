@@ -1,0 +1,164 @@
+[
+  {
+    "title": "Northlight Cyc Wall",
+    "category": "Photo Studio",
+    "location": "Gulshan, Dhaka",
+    "price": 45,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "The Dark Room Stage",
+    "category": "Film Stage",
+    "location": "Banani, Dhaka",
+    "price": 120,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Echo Podcast Lounge",
+    "category": "Podcast Lounge",
+    "location": "Dhanmondi, Dhaka",
+    "price": 30,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Reel Sound Suite",
+    "category": "Music Suite",
+    "location": "Uttara, Dhaka",
+    "price": 55,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Clay & Canvas Workshop",
+    "category": "Workshop",
+    "location": "Mirpur, Dhaka",
+    "price": 25,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Halo Portrait Loft",
+    "category": "Photo Studio",
+    "location": "Bashundhara, Dhaka",
+    "price": 60,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1526947425960-945c6e72858f?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 7,
+    "title": "Aura Film Studio",
+    "category": "Film Stage",
+    "location": "Mohakhali, Dhaka",
+    "price": 110,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "id": 8,
+    "title": "Vocal Hub Podcast",
+    "category": "Podcast Lounge",
+    "location": "Baridhara, Dhaka",
+    "price": 35,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Harmony Audio Lab",
+    "category": "Music Suite",
+    "location": "Tejgaon, Dhaka",
+    "price": 65,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Craftsman Art Space",
+    "category": "Workshop",
+    "location": "Uttara, Dhaka",
+    "price": 30,
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Lumina Flash Studio",
+    "category": "Photo Studio",
+    "location": "Dhanmondi, Dhaka",
+    "price": 50,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1554048612-b6a482bc67e5?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Cinematic Hub Stage",
+    "category": "Film Stage",
+    "location": "Gulshan, Dhaka",
+    "price": 140,
+    "rating": 5.0,
+    "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Mic Drop Studio",
+    "category": "Podcast Lounge",
+    "location": "Banani, Dhaka",
+    "price": 40,
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1520523839896-5085600392e2?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Beat Maker Suites",
+    "category": "Music Suite",
+    "location": "Mohakhali, Dhaka",
+    "price": 75,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Sculpt & Design Loft",
+    "category": "Workshop",
+    "location": "Panthapath, Dhaka",
+    "price": 45,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Shutter Up Studio",
+    "category": "Photo Studio",
+    "location": "Khilgaon, Dhaka",
+    "price": 40,
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Prime Stage Arena",
+    "category": "Film Stage",
+    "location": "Uttara, Dhaka",
+    "price": 130,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Talkies Podcast Space",
+    "category": "Podcast Lounge",
+    "location": "Bashundhara, Dhaka",
+    "price": 35,
+    "rating": 4.7,
+    "image": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "SoundWave Studio",
+    "category": "Music Suite",
+    "location": "Dhanmondi, Dhaka",
+    "price": 80,
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    "title": "Artisan Studio Space",
+    "category": "Workshop",
+    "location": "Gulshan, Dhaka",
+    "price": 50,
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop"
+  }
+]
