@@ -51,7 +51,7 @@ export default function StudioCard({ studio }: { studio: Studio }) {
         </div>
 
         <Link
-          href={`/studios/${studio._id}`}
+          href={`/studio-details/${studio._id}`}
           className="block w-full text-center bg-[#111827] hover:bg-black text-white font-medium py-2.5 rounded-lg transition-colors text-sm shadow"
         >
           View Details

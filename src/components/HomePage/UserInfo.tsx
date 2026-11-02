@@ -97,7 +97,7 @@ export default function UserInfo() {
 
           <DropdownMenuItem className="p-0 focus:bg-transparent">
             <Link
-              href="/studios/add"
+              href="/add-studio"
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/studios/add")
                   ? "bg-amber-500 text-black font-semibold"

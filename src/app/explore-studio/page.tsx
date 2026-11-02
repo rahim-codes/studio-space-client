@@ -35,13 +35,6 @@ export default function ExploreStudiosPage() {
         const studioArray: Studio[] = responseData.data || [];
         console.log(studioArray);
         setStudios(studioArray);
-        // if (Array.isArray(studioArray)) {
-        //   setStudios(studioArray);
-        // } else if (studioArray.studios && Array.isArray(studioArray.studios)) {
-        //   setStudios(data.studios);
-        // } else {
-        //   setStudios([]);
-        // }
       } catch (error) {
         console.error("Error fetching studios:", error);
         setStudios([]);
