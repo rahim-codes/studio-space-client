@@ -19,7 +19,7 @@ interface Studio {
 
 export default function MyListingsPage() {
   const router = useRouter();
-  const { data: session } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
   const [studios, setStudios] = useState<Studio[]>([]);
@@ -50,11 +50,21 @@ export default function MyListingsPage() {
   };
 
   useEffect(() => {
-    if (user?.email) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      fetchMyListings(user.email);
+    // সেশন লোড শেষ হলে এবং ইউজার থাকলে ডেটা ফেচ হবে
+    if (!isPending) {
+      if (user?.email) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        fetchMyListings(user?.email);
+      } else {
+        // সিঙ্ক্রোনাস রেন্ডারিং এড়াতে এবং সরাসরি setState কল রোধ করতে
+        const timer = setTimeout(() => {
+          setLoading(false);
+          router.push("/sign-in");
+        }, 0);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [user]);
+  }, [user, isPending, router]);
 
   // Open Delete Confirmation Modal
   const confirmDelete = (id: string) => {
@@ -98,32 +108,32 @@ export default function MyListingsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5]">
-        <p className="text-gray-500 font-medium">Loading your listings...</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5] dark:bg-[#0b0f17]">
+        <p className="text-muted-foreground font-medium">Loading your listings...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20 relative">
+    <div className="min-h-screen bg-[#f7f7f5] dark:bg-[#0b0f17] py-12 px-6 lg:px-20 relative">
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Page Header */}
         <div className="space-y-1">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             My Studio Listings
           </h1>
         </div>
 
         {/* Table Container */}
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-card rounded-3xl shadow-sm border border-border overflow-hidden">
           {studios.length === 0 ? (
-            <div className="p-12 text-center text-gray-500">
+            <div className="p-12 text-center text-muted-foreground">
               <p className="text-base font-semibold">
                 You haven&apos;t added any studios yet.
               </p>
               <Button
                 onClick={() => router.push("/studios/add")}
-                className="mt-4 bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold rounded-xl"
+                className="mt-4 bg-[#f59e0b] hover:bg-[#d97706] text-foreground font-bold rounded-xl"
               >
                 Add Your First Studio
               </Button>
@@ -132,7 +142,7 @@ export default function MyListingsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-gray-100 text-xs font-bold text-gray-400 uppercase tracking-wider bg-gray-50/50">
+                  <tr className="border-b border-border text-xs font-bold text-muted-foreground uppercase tracking-wider bg-muted/50">
                     <th className="py-4 px-6">Studio</th>
                     <th className="py-4 px-6">Category</th>
                     <th className="py-4 px-6">Rate</th>
@@ -140,30 +150,30 @@ export default function MyListingsPage() {
                     <th className="py-4 px-6 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 text-sm text-gray-700">
+                <tbody className="divide-y divide-border text-sm text-foreground">
                   {studios.map((studio) => (
                     <tr
                       key={studio._id}
-                      className="hover:bg-gray-50/50 transition-all"
+                      className="hover:bg-muted/50 transition-all"
                     >
-                      <td className="py-4 px-6 font-bold text-black flex items-center gap-3">
+                      <td className="py-4 px-6 font-bold text-foreground flex items-center gap-3">
                         {studio.title}
                       </td>
                       <td className="py-4 px-6">
-                        <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-800 font-semibold text-xs">
+                        <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-800 dark:text-amber-400 font-semibold text-xs">
                           {studio.category}
                         </span>
                       </td>
                       <td className="py-4 px-6 font-medium">
                         ${studio.price} / hr
                       </td>
-                      <td className="py-4 px-6 text-gray-500">
+                      <td className="py-4 px-6 text-muted-foreground">
                         {studio.location}, Dhaka
                       </td>
                       <td className="py-4 px-6 text-right space-x-2">
                         <Button
                           onClick={() => handleOpenUpdate(studio._id)}
-                          className="px-4 h-9 bg-black hover:bg-gray-800 text-white text-xs font-semibold rounded-xl cursor-pointer"
+                          className="px-4 h-9 bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold rounded-xl cursor-pointer"
                         >
                           Update
                         </Button>
@@ -185,12 +195,12 @@ export default function MyListingsPage() {
       {/* Delete Confirmation Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-gray-100 space-y-6 animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-card rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-border space-y-6 animate-in fade-in zoom-in-95 duration-200">
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-black tracking-tight">
+              <h3 className="text-xl font-bold text-foreground tracking-tight">
                 Delete this listing?
               </h3>
-              <p className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 This permanently removes the studio and cannot be undone.
               </p>
             </div>
@@ -199,7 +209,7 @@ export default function MyListingsPage() {
               <Button
                 onClick={() => setIsModalOpen(false)}
                 variant="outline"
-                className="px-5 h-11 rounded-xl border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 cursor-pointer"
+                className="px-5 h-11 rounded-xl border-border text-foreground font-semibold text-sm hover:bg-muted cursor-pointer"
               >
                 Cancel
               </Button>
@@ -218,10 +228,9 @@ export default function MyListingsPage() {
         onClose={() => setIsUpdateModalOpen(false)}
         studioId={updatingStudioId}
         onUpdated={() => {
-          if (user?.email) fetchMyListings(user.email);
+          if (user?.email) fetchMyListings(user?.email);
         }}
       />
-      ;
     </div>
   );
 }

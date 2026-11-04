@@ -30,7 +30,7 @@ const slidesData = [
 
 export default function HeroSlider() {
   return (
-    <section className="bg-[#0b0f17] text-white flex items-center px-6 lg:px-20 py-12">
+    <section className="bg-background text-foreground flex items-center px-6 lg:px-20 py-12 dark:bg-[#0b0f17] dark:text-white">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* বাম দিকের টেক্সট ও বাটন */}
         <div className="space-y-6">
@@ -42,7 +42,7 @@ export default function HeroSlider() {
             Find the room where your best work happens.
           </h1>
 
-          <p className="text-gray-400 text-base sm:text-lg max-w-xl">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-xl dark:text-gray-400">
             Photo cycs, sound stages, podcast lounges and recording suites from
             verified hosts, with live availability and clear pricing.
           </p>
@@ -51,7 +51,7 @@ export default function HeroSlider() {
             <button className="bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-lg">
               Explore Studios
             </button>
-            <button className="border border-gray-700 hover:border-gray-500 bg-transparent text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200">
+            <button className="border border-border hover:border-foreground bg-transparent text-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-200 dark:border-gray-700 dark:hover:border-gray-500 dark:text-white">
               Host Your Space
             </button>
           </div>
@@ -70,7 +70,7 @@ export default function HeroSlider() {
               clickable: true,
             }}
             loop={true}
-            className="rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+            className="rounded-2xl overflow-hidden shadow-2xl border border-border dark:border-gray-800"
           >
             {slidesData.map((slide) => (
               <SwiperSlide key={slide.id}>

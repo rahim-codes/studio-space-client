@@ -4,7 +4,8 @@ import UserInfo from "@/components/HomePage/UserInfo";
 import LoadingFallback from "@/components/shared/LoadingFallback";
 import { Button } from "@/components/ui/button";
 import { cn } from "cn";
-import { Globe } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
@@ -36,14 +37,17 @@ const navLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { resolvedTheme, setTheme } = useTheme();
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0B1120]">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background dark:border-white/5 dark:bg-[#0B1120]">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-full bg-amber-500">
             <BasketballIcon className="size-5 text-[#0B1120]" />
           </span>
-          <span className="text-xl font-bold text-white">StudioSpace</span>
+          <span className="text-xl font-bold text-foreground dark:text-white">
+            StudioSpace
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -58,7 +62,7 @@ export function Navbar() {
                   "text-sm font-medium transition-colors",
                   isActive
                     ? "border-b-2 border-amber-500 pb-0.5 text-amber-500"
-                    : "text-slate-200 hover:text-white",
+                    : "text-muted-foreground hover:text-foreground dark:text-slate-200 dark:hover:text-white",
                 )}
               >
                 {link.label}
@@ -70,11 +74,15 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <Button
             variant="ghost"
-            size="icon-sm"
-            className="rounded-md bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white"
-            aria-label="Language"
+            size="icon"
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            className="rounded-md"
+            aria-label="Toggle Theme"
           >
-            <Globe className="size-4" />
+            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
           <Suspense fallback={<LoadingFallback />}>
             <UserInfo />

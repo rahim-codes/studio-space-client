@@ -1,8 +1,9 @@
 import Footer from "@/components/shared/Footer";
 import { Navbar } from "@/components/shared/navbar";
+import { ThemeProvider } from "@/components/Theme/ThemeProvider";
+import { ToastProvider } from "@/components/Theme/ToastProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
@@ -26,26 +27,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning={true}
     >
       <body
         className="min-h-full flex flex-col"
         suppressHydrationWarning={true}
       >
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ToastContainer
-          position="bottom-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ToastProvider />
+        </ThemeProvider>
       </body>
     </html>
   );

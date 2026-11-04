@@ -78,13 +78,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] flex items-center justify-center p-4">
-      <Card className="w-full max-w-md bg-white rounded-3xl border-none shadow-sm p-4 sm:p-6">
+    <div className="min-h-screen bg-[#f7f7f5] dark:bg-[#0b0f17] flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-card rounded-3xl border-none shadow-sm p-4 sm:p-6">
         <CardHeader className="space-y-1.5 px-0 pt-0">
-          <CardTitle className="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">
+          <CardTitle className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
             Welcome back
           </CardTitle>
-          <CardDescription className="text-gray-500 text-sm">
+          <CardDescription className="text-muted-foreground text-sm">
             Log in to manage your bookings and listings.
           </CardDescription>
         </CardHeader>
@@ -95,7 +95,7 @@ export default function LoginPage() {
             <div className="space-y-1.5">
               <Label
                 htmlFor="email"
-                className="text-xs font-semibold text-gray-800"
+                className="text-xs font-semibold text-foreground"
               >
                 Email
               </Label>
@@ -107,7 +107,7 @@ export default function LoginPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="h-11 rounded-xl border-gray-200 bg-white placeholder:text-gray-400 focus-visible:ring-amber-500 text-sm"
+                className="h-11 rounded-xl border-border bg-card placeholder:text-muted-foreground focus-visible:ring-amber-500 text-sm"
               />
             </div>
 
@@ -116,7 +116,7 @@ export default function LoginPage() {
               <div className="flex items-center justify-between">
                 <Label
                   htmlFor="password"
-                  className="text-xs font-semibold text-gray-800"
+                  className="text-xs font-semibold text-foreground"
                 >
                   Password
                 </Label>
@@ -135,14 +135,14 @@ export default function LoginPage() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="h-11 rounded-xl border-gray-200 bg-white placeholder:text-gray-400 focus-visible:ring-amber-500 text-sm"
+                className="h-11 rounded-xl border-border bg-card placeholder:text-muted-foreground focus-visible:ring-amber-500 text-sm"
               />
             </div>
 
             {/* Login Submit Button */}
             <Button
               type="submit"
-              className="w-full h-11 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold rounded-xl text-sm transition-all shadow-none mt-2"
+              className="w-full h-11 bg-[#f59e0b] hover:bg-[#d97706] text-foreground font-semibold rounded-xl text-sm transition-all shadow-none mt-2"
             >
               Login
             </Button>
@@ -150,11 +150,11 @@ export default function LoginPage() {
 
           {/* Divider */}
           <div className="relative my-5 text-center">
-            <span className="relative z-10 bg-white px-2 text-xs text-gray-400 font-medium">
+            <span className="relative z-10 bg-card px-2 text-xs text-muted-foreground font-medium">
               or
             </span>
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-100" />
+              <div className="w-full border-t border-border" />
             </div>
           </div>
 
@@ -163,13 +163,13 @@ export default function LoginPage() {
             type="button"
             variant="outline"
             onClick={handleGoogleSignIn}
-            className="w-full h-11 border border-gray-200 rounded-xl font-semibold text-gray-800 text-sm hover:bg-gray-50 transition-all bg-white"
+            className="w-full h-11 border border-border rounded-xl font-semibold text-foreground text-sm hover:bg-muted transition-all bg-card"
           >
             Continue with Google
           </Button>
 
           {/* Register Link */}
-          <p className="text-center text-xs text-gray-500 mt-6">
+          <p className="text-center text-xs text-muted-foreground mt-6">
             New here?{" "}
             <Link
               href="/register"

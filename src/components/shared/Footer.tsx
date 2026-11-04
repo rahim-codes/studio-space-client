@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b0f17] text-white pt-16 pb-8 px-6 lg:px-20 border-t border-gray-900">
+    <footer className="border-t border-border bg-background pt-16 pb-8 px-6 lg:px-20 text-foreground dark:border-gray-900 dark:bg-[#0b0f17] dark:text-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
         {/* Column 1: Logo & Mission (Takes 2 columns on lg) */}
         <div className="lg:col-span-2 space-y-4">
@@ -13,10 +13,10 @@ export default function Footer() {
               <span className="flex size-9 items-center justify-center rounded-full bg-amber-500">
                 <BasketballIcon className="size-5 text-[#0B1120]" />
               </span>
-              <span className="text-xl font-bold text-white">StudioSpace</span>
+              <span className="text-xl font-bold text-foreground dark:text-white">StudioSpace</span>
             </Link>
           </div>
-          <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
+          <p className="text-muted-foreground text-sm max-w-sm leading-relaxed dark:text-gray-400">
             Our mission is to put every creator in the right room, at the right
             hour.
           </p>
@@ -24,8 +24,8 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="space-y-4">
-          <h4 className="text-white font-semibold text-base">Quick Links</h4>
-          <ul className="space-y-2.5 text-sm text-gray-400">
+          <h4 className="text-foreground font-semibold text-base dark:text-white">Quick Links</h4>
+          <ul className="space-y-2.5 text-sm text-muted-foreground dark:text-gray-400">
             <li>
               <Link href="/" className="hover:text-[#f59e0b] transition-colors">
                 Home
@@ -60,10 +60,10 @@ export default function Footer() {
 
         {/* Column 3: Popular Categories */}
         <div className="space-y-4">
-          <h4 className="text-white font-semibold text-base">
+          <h4 className="text-foreground font-semibold text-base dark:text-white">
             Popular Categories
           </h4>
-          <ul className="space-y-2.5 text-sm text-gray-400">
+          <ul className="space-y-2.5 text-sm text-muted-foreground dark:text-gray-400">
             <li>
               <Link
                 href="/categories/photo-studios"
@@ -109,9 +109,9 @@ export default function Footer() {
 
         {/* Column 4: Newsletter */}
         <div className="space-y-4">
-          <h4 className="text-white font-semibold text-base">Newsletter</h4>
+          <h4 className="text-foreground font-semibold text-base dark:text-white">Newsletter</h4>
           <div className="space-y-3">
-            <label htmlFor="email" className="block text-xs text-gray-400">
+            <label htmlFor="email" className="block text-xs text-muted-foreground dark:text-gray-400">
               Email address
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -119,7 +119,7 @@ export default function Footer() {
                 type="email"
                 id="email"
                 placeholder="you@example.com"
-                className="bg-[#111827] border border-gray-800 text-white text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[#f59e0b] w-full"
+                className="bg-card border border-border text-foreground text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-[#f59e0b] w-full dark:bg-[#111827] dark:border-gray-800 dark:text-white"
               />
               <button
                 type="submit"
@@ -136,7 +136,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#111827] border border-gray-800 text-gray-300 hover:text-[#f59e0b] hover:border-gray-700 transition-all"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-card border border-border text-muted-foreground hover:text-[#f59e0b] transition-all dark:bg-[#111827] dark:border-gray-800 dark:text-gray-300 dark:hover:border-gray-700"
             >
               {/* X (Twitter) Icon */}
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+      <div className="max-w-7xl mx-auto pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between text-xs text-muted-foreground dark:border-gray-900 dark:text-gray-500">
         <p>© 2026 StudioSpace. All rights reserved.</p>
         <p className="mt-2 sm:mt-0">Terms & Privacy.</p>
       </div>

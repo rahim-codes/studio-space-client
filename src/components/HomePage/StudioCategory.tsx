@@ -43,14 +43,14 @@ const categories = [
 
 export default function StudioCategories() {
   return (
-    <section className="bg-[#f7f7f5] py-16 px-6 lg:px-15">
+    <section className="bg-[#f7f7f5] py-16 px-6 lg:px-15 dark:bg-[#0b0f17]">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header Section */}
         <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             Browse by Studio Category
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base">
             Pick a category and jump straight to matching spaces.
           </p>
         </div>

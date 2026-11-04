@@ -21,14 +21,14 @@ const guarantees = [
 
 export default function HostGuarantee() {
   return (
-    <section id="about" className="bg-[#0b0f17] text-white py-16 px-6 lg:px-20">
+    <section id="about" className="bg-background text-foreground py-16 px-6 lg:px-20 dark:bg-[#0b0f17] dark:text-white">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Section Header */}
         <div className="space-y-2">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             Host Guarantee & Creator Support
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base dark:text-gray-400">
             Every session is backed by the platform.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function HostGuarantee() {
           {guarantees.map((item, index) => (
             <Card
               key={index}
-              className="bg-[#111827] border border-gray-800 rounded-2xl p-6 shadow-lg hover:border-gray-700 transition-all duration-300"
+              className="bg-card border border-border rounded-2xl p-6 shadow-lg transition-all duration-300 dark:bg-[#111827] dark:border-gray-800 dark:hover:border-gray-700"
             >
               <CardContent className="p-0 space-y-3">
                 {/* Title with Accent Color */}
@@ -47,7 +47,7 @@ export default function HostGuarantee() {
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed dark:text-gray-400">
                   {item.description}
                 </p>
               </CardContent>

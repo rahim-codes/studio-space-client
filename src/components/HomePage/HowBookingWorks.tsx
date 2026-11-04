@@ -25,14 +25,14 @@ const steps = [
 
 export default function HowBookingWorks() {
   return (
-    <section id="how-it-works" className="py-16 px-6 lg:px-20 bg-white">
+    <section id="how-it-works" className="py-16 px-6 lg:px-20 bg-background">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Section Header */}
         <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             How Booking Works
           </h2>
-          <p className="text-gray-500 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base">
             From idea to shoot day in four steps.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function HowBookingWorks() {
           {steps.map((item) => (
             <Card
               key={item.stepNumber}
-              className="bg-[#f9fafb] border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="bg-[#f9fafb] border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 dark:bg-card"
             >
               <CardContent className="p-0 space-y-4">
                 {/* Number Badge */}
@@ -52,10 +52,10 @@ export default function HowBookingWorks() {
 
                 {/* Text Content */}
                 <div className="space-y-1.5">
-                  <h3 className="text-lg font-bold text-gray-950 tracking-tight">
+                  <h3 className="text-lg font-bold text-foreground tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>

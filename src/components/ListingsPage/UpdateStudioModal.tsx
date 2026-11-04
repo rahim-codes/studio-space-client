@@ -93,33 +93,33 @@ export default function UpdateStudioModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl border border-gray-100 space-y-6 relative my-8 animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl border border-border space-y-6 relative my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 text-gray-500 transition-all cursor-pointer"
+          className="absolute top-6 right-6 p-2 rounded-full hover:bg-muted text-muted-foreground transition-all cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="space-y-1">
-          <h3 className="text-2xl font-extrabold text-black tracking-tight">
+          <h3 className="text-2xl font-extrabold text-foreground tracking-tight">
             Update Studio Listing
           </h3>
-          <p className="text-xs sm:text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Modify your studio information below.
           </p>
         </div>
 
         {loading && !formData.title ? (
-          <div className="py-12 text-center text-gray-500 font-medium">
+          <div className="py-12 text-center text-muted-foreground font-medium">
             Loading studio data...
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Title
                 </label>
                 <Input
@@ -129,12 +129,12 @@ export default function UpdateStudioModal({
                   onChange={(e) =>
                     setFormData({ ...formData, title: e.target.value })
                   }
-                  className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                  className="h-11 rounded-xl border-border bg-card text-sm"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Category
                 </label>
                 <select
@@ -142,7 +142,7 @@ export default function UpdateStudioModal({
                   onChange={(e) =>
                     setFormData({ ...formData, category: e.target.value })
                   }
-                  className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full h-11 px-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
                 >
                   <option value="Photo Studio">Photo Studio</option>
                   <option value="Film Stage">Film Stage</option>
@@ -153,7 +153,7 @@ export default function UpdateStudioModal({
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Hourly rate ($)
                 </label>
                 <Input
@@ -163,12 +163,12 @@ export default function UpdateStudioModal({
                   onChange={(e) =>
                     setFormData({ ...formData, price: e.target.value })
                   }
-                  className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                  className="h-11 rounded-xl border-border bg-card text-sm"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Security deposit ($)
                 </label>
                 <Input
@@ -181,12 +181,12 @@ export default function UpdateStudioModal({
                       securityDeposit: e.target.value,
                     })
                   }
-                  className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                  className="h-11 rounded-xl border-border bg-card text-sm"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Max capacity
                 </label>
                 <Input
@@ -196,12 +196,12 @@ export default function UpdateStudioModal({
                   onChange={(e) =>
                     setFormData({ ...formData, maxCapacity: e.target.value })
                   }
-                  className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                  className="h-11 rounded-xl border-border bg-card text-sm"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-800">
+                <label className="text-xs font-semibold text-foreground">
                   Location
                 </label>
                 <Input
@@ -211,13 +211,13 @@ export default function UpdateStudioModal({
                   onChange={(e) =>
                     setFormData({ ...formData, location: e.target.value })
                   }
-                  className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                  className="h-11 rounded-xl border-border bg-card text-sm"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Image URL
               </label>
               <Input
@@ -227,12 +227,12 @@ export default function UpdateStudioModal({
                 onChange={(e) =>
                   setFormData({ ...formData, image: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Detailed overview
               </label>
               <textarea
@@ -242,7 +242,7 @@ export default function UpdateStudioModal({
                 onChange={(e) =>
                   setFormData({ ...formData, description: e.target.value })
                 }
-                className="w-full p-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full p-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
               ></textarea>
             </div>
 
@@ -251,14 +251,14 @@ export default function UpdateStudioModal({
                 type="button"
                 variant="outline"
                 onClick={onClose}
-                className="px-5 h-11 rounded-xl border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 cursor-pointer"
+                className="px-5 h-11 rounded-xl border-border text-foreground font-semibold text-sm hover:bg-muted cursor-pointer"
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 disabled={loading}
-                className="px-6 h-11 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold text-sm rounded-xl cursor-pointer shadow-none"
+                className="px-6 h-11 bg-[#f59e0b] hover:bg-[#d97706] text-foreground font-semibold text-sm rounded-xl cursor-pointer shadow-none"
               >
                 {loading ? "Updating..." : "Save Changes"}
               </Button>

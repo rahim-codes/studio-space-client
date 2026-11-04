@@ -48,14 +48,14 @@ export default async function CategoryStudiosPage({
   const studios = await getCategoryStudios(categoryStudio);
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20">
+    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20 dark:bg-[#0b0f17]">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Back Button & Header */}
         <div className="space-y-3">
           <Link href="/">
             <Button
               variant="outline"
-              className="flex items-center gap-2 rounded-xl border-gray-200 text-gray-700 bg-white hover:bg-gray-50 cursor-pointer text-xs h-9 px-4"
+              className="flex items-center gap-2 rounded-xl border-border text-foreground bg-card hover:bg-muted cursor-pointer text-xs h-9 px-4"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Home
             </Button>
@@ -64,19 +64,19 @@ export default async function CategoryStudiosPage({
           <div className="flex items-center justify-between">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <span className="p-2 rounded-xl bg-amber-400/20 text-amber-800">
+                <span className="p-2 rounded-xl bg-amber-400/20 text-amber-800 dark:text-amber-400">
                   <Sparkles className="w-5 h-5" />
                 </span>
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+                <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
                   {categoryStudio}
                 </h1>
               </div>
-              <p className="text-gray-500 text-sm sm:text-base">
+              <p className="text-muted-foreground text-sm sm:text-base">
                 Explore available creative spaces under {categoryStudio}.
               </p>
             </div>
 
-            <span className="hidden sm:inline-block px-4 py-2 rounded-2xl bg-white border border-gray-100 shadow-xs text-sm font-bold text-gray-700">
+            <span className="hidden sm:inline-block px-4 py-2 rounded-2xl bg-card border border-border shadow-xs text-sm font-bold text-foreground">
               {studios.length} Spaces Found
             </span>
           </div>
@@ -84,12 +84,12 @@ export default async function CategoryStudiosPage({
 
         {/* Studios Grid / Empty State */}
         {studios.length === 0 ? (
-          <div className="bg-white p-12 text-center rounded-3xl border border-gray-100 space-y-4">
-            <p className="text-gray-500 font-medium">
+          <div className="bg-card p-12 text-center rounded-3xl border border-border space-y-4">
+            <p className="text-muted-foreground font-medium">
               No studios found in this category yet.
             </p>
             <Link href="/">
-              <Button className="bg-[#111827] hover:bg-black text-white font-semibold rounded-xl text-sm h-11 px-6">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl text-sm h-11 px-6">
                 Browse All Studios
               </Button>
             </Link>

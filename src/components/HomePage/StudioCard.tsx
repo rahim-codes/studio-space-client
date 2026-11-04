@@ -14,7 +14,7 @@ interface Studio {
 
 export default function StudioCard({ studio }: { studio: Studio }) {
   return (
-    <Card className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+    <Card className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300">
       {/* Top Banner / Image Area */}
       <div className="relative h-52 w-full bg-[#1e293b]">
         <Image
@@ -35,24 +35,24 @@ export default function StudioCard({ studio }: { studio: Studio }) {
       </div>
 
       {/* Bottom Content Area */}
-      <CardContent className="p-5 space-y-4 bg-white">
+      <CardContent className="p-5 space-y-4 bg-card">
         <div>
-          <h3 className="text-lg font-bold text-gray-900 tracking-tight truncate">
+          <h3 className="text-lg font-bold text-foreground tracking-tight truncate">
             {studio.title}
           </h3>
-          <p className="text-sm text-gray-500 mt-0.5">{studio.location}</p>
+          <p className="text-sm text-muted-foreground mt-0.5">{studio.location}</p>
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="text-black font-extrabold text-base">
+          <div className="text-foreground font-extrabold text-base">
             ${studio.price}{" "}
-            <span className="text-xs font-normal text-gray-500">/ hr</span>
+            <span className="text-xs font-normal text-muted-foreground">/ hr</span>
           </div>
         </div>
 
         <Link
           href={`/studio-details/${studio._id}`}
-          className="block w-full text-center bg-[#111827] hover:bg-black text-white font-medium py-2.5 rounded-lg transition-colors text-sm shadow"
+          className="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2.5 rounded-lg transition-colors text-sm shadow"
         >
           View Details
         </Link>

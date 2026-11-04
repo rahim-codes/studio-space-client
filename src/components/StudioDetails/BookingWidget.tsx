@@ -80,32 +80,32 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
   };
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100 space-y-6">
+    <div className="bg-card p-6 sm:p-8 rounded-3xl shadow-xl border border-border space-y-6">
       {/* Price Header */}
-      <div className="flex items-baseline gap-1 border-b border-gray-100 pb-4">
-        <span className="text-3xl font-extrabold text-black">
+      <div className="flex items-baseline gap-1 border-b border-border pb-4">
+        <span className="text-3xl font-extrabold text-foreground">
           ${studio.price}
         </span>
-        <span className="text-sm text-gray-500 font-medium">/ hr</span>
+        <span className="text-sm text-muted-foreground font-medium">/ hr</span>
       </div>
 
       {/* Booking Form */}
       <form onSubmit={handleBooking} className="space-y-4">
         {/* Date Picker */}
         <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-gray-700">Date</label>
+          <label className="text-xs font-semibold text-foreground">Date</label>
           <Input
             type="date"
             required
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+            className="h-11 rounded-xl border-border bg-card text-sm"
           />
         </div>
 
         {/* Start Time */}
         <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-gray-700">
+          <label className="text-xs font-semibold text-foreground">
             Start time
           </label>
           <Input
@@ -113,17 +113,17 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
             required
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+            className="h-11 rounded-xl border-border bg-card text-sm"
           />
         </div>
 
         {/* Hours Dropdown */}
         <div className="space-y-1.5">
-          <label className="text-xs font-semibold text-gray-700">Hours</label>
+          <label className="text-xs font-semibold text-foreground">Hours</label>
           <select
             value={hours}
             onChange={(e) => setHours(Number(e.target.value))}
-            className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full h-11 px-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
           >
             <option value={1}>1 hour</option>
             <option value={2}>2 hours</option>
@@ -135,16 +135,16 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
         </div>
 
         {/* Cost Breakdown */}
-        <div className="space-y-2 pt-4 border-t border-gray-100 text-sm">
-          <div className="flex justify-between text-gray-600">
+        <div className="space-y-2 pt-4 border-t border-border text-sm">
+          <div className="flex justify-between text-muted-foreground">
             <span>Subtotal ({hours} hrs)</span>
             <span>${subtotal}</span>
           </div>
-          <div className="flex justify-between text-gray-600">
+          <div className="flex justify-between text-muted-foreground">
             <span>Security deposit</span>
             <span>${studio.securityDeposit}</span>
           </div>
-          <div className="flex justify-between font-extrabold text-base text-black pt-2 border-t border-dashed border-gray-200">
+          <div className="flex justify-between font-extrabold text-base text-foreground pt-2 border-t border-dashed border-border">
             <span>Total</span>
             <span>${total}</span>
           </div>
@@ -154,7 +154,7 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-12 bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold rounded-xl text-sm transition-all shadow-none cursor-pointer"
+          className="w-full h-12 bg-[#f59e0b] hover:bg-[#d97706] text-foreground font-bold rounded-xl text-sm transition-all shadow-none cursor-pointer"
         >
           {loading ? "Booking Workspace..." : "Book Workspace Now"}
         </Button>

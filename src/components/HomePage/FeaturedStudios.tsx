@@ -21,11 +21,11 @@ export default async function FeaturedStudios() {
     .slice(0, 6);
 
   return (
-    <section className="py-16 px-6 lg:px-20 bg-[#f9fafb]">
+    <section className="py-16 px-6 lg:px-20 bg-[#f9fafb] dark:bg-[#0b0f17]">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Section Header */}
         <div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             Featured Studios
           </h2>
         </div>

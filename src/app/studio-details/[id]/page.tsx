@@ -44,20 +44,20 @@ export default async function StudioDetailsPage({ params }: PageProps) {
 
   if (!studio) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5]">
+      <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5] dark:bg-[#0b0f17]">
         <p className="text-red-500 font-semibold">Studio not found!</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] py-10 px-6 lg:px-20">
+    <div className="min-h-screen bg-[#f7f7f5] dark:bg-[#0b0f17] py-10 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Left 2 Columns: Details & Gallery */}
         <div className="lg:col-span-2 space-y-8">
           {/* Gallery Carousel / Images */}
           <div className="space-y-3">
-            <div className="relative h-95 sm:h-112.5 w-full rounded-3xl overflow-hidden bg-gray-200 shadow-sm">
+            <div className="relative h-95 sm:h-112.5 w-full rounded-3xl overflow-hidden bg-muted shadow-sm">
               <Image
                 src={
                   studio.image ||
@@ -79,7 +79,7 @@ export default async function StudioDetailsPage({ params }: PageProps) {
               {[1, 2, 3, 4].map((_, idx) => (
                 <div
                   key={idx}
-                  className="relative h-24 rounded-2xl overflow-hidden bg-gray-200 cursor-pointer border hover:border-amber-500 transition-all"
+                  className="relative h-24 rounded-2xl overflow-hidden bg-muted cursor-pointer border hover:border-amber-500 transition-all"
                 >
                   <Image
                     src={studio.image}
@@ -95,28 +95,28 @@ export default async function StudioDetailsPage({ params }: PageProps) {
 
           {/* Category Badge */}
           <div>
-            <span className="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-800 font-semibold text-xs tracking-wide">
+            <span className="inline-block px-3 py-1 rounded-full bg-amber-400/20 text-amber-800 dark:text-amber-400 font-semibold text-xs tracking-wide">
               {studio.category}
             </span>
           </div>
 
           {/* Title & Meta Info */}
           <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
               {studio.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 font-medium">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-medium">
               <span className="flex items-center gap-1">
-                <MapPin className="w-4 h-4 text-gray-400" /> {studio.location},
+                <MapPin className="w-4 h-4 text-muted-foreground" /> {studio.location},
                 Dhaka
               </span>
               <span>•</span>
               <span className="flex items-center gap-1">
-                <Users className="w-4 h-4 text-gray-400" /> Up to{" "}
+                <Users className="w-4 h-4 text-muted-foreground" /> Up to{" "}
                 {studio.maxCapacity} people
               </span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-black font-semibold">
+              <span className="flex items-center gap-1 text-foreground font-semibold">
                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" />{" "}
                 {studio.rating || 4.9}
               </span>
@@ -124,21 +124,21 @@ export default async function StudioDetailsPage({ params }: PageProps) {
           </div>
 
           {/* Overview */}
-          <div className="space-y-2 pt-2 border-t border-gray-200">
-            <h2 className="text-lg font-bold text-black">Overview</h2>
-            <p className="text-gray-600 text-sm leading-relaxed">
+          <div className="space-y-2 pt-2 border-t border-border">
+            <h2 className="text-lg font-bold text-foreground">Overview</h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
               {studio.description}
             </p>
           </div>
 
           {/* Amenities */}
-          <div className="space-y-3 pt-2 border-t border-gray-200">
-            <h2 className="text-lg font-bold text-black">Amenities</h2>
+          <div className="space-y-3 pt-2 border-t border-border">
+            <h2 className="text-lg font-bold text-foreground">Amenities</h2>
             <div className="flex flex-wrap gap-2.5">
               {studio.amenities?.map((amenity, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-xs font-medium shadow-2xs"
+                  className="px-4 py-2 rounded-full border border-border bg-card text-foreground text-xs font-medium shadow-2xs"
                 >
                   {amenity}
                 </span>
@@ -147,23 +147,23 @@ export default async function StudioDetailsPage({ params }: PageProps) {
           </div>
 
           {/* Host Info Card */}
-          <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-2xs space-y-2">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-2xs space-y-2">
+            <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
               Hosted by
             </p>
-            <h3 className="text-base font-bold text-black">
+            <h3 className="text-base font-bold text-foreground">
               {studio.hostName}
             </h3>
-            <p className="text-xs text-gray-500">{studio.hostEmail}</p>
+            <p className="text-xs text-muted-foreground">{studio.hostEmail}</p>
           </div>
 
           {/* Reviews Section */}
-          <div className="space-y-4 pt-2 border-t border-gray-200">
-            <h2 className="text-lg font-bold text-black">Reviews</h2>
+          <div className="space-y-4 pt-2 border-t border-border">
+            <h2 className="text-lg font-bold text-foreground">Reviews</h2>
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-white border border-gray-100 space-y-1">
+              <div className="p-4 rounded-xl bg-card border border-border space-y-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-sm text-black">
+                  <span className="font-semibold text-sm text-foreground">
                     Alex Morgan
                   </span>
                   <span className="flex items-center gap-1 text-xs font-bold text-amber-600">
@@ -171,7 +171,7 @@ export default async function StudioDetailsPage({ params }: PageProps) {
                     5.0
                   </span>
                 </div>
-                <p className="text-xs text-gray-600">
+                <p className="text-xs text-muted-foreground">
                   Amazing space with great lighting and equipment!
                 </p>
               </div>

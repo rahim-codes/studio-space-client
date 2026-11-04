@@ -62,23 +62,23 @@ export default function ExploreStudiosPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20">
+    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20 dark:bg-[#0b0f17]">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Page Header */}
         <div className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             Explore Studios
           </h1>
-          <p className="text-gray-500 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base">
             Search, filter and compare every available creative space.
           </p>
         </div>
 
         {/* Filters Section Bar */}
-        <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+        <div className="bg-card p-6 rounded-3xl shadow-sm border border-border grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
           {/* Search Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-gray-800">
+            <label className="text-xs font-semibold text-foreground">
               Search
             </label>
             <Input
@@ -86,19 +86,19 @@ export default function ExploreStudiosPage() {
               placeholder="Studio name or location"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+              className="h-11 rounded-xl text-sm"
             />
           </div>
 
           {/* Category Filter */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-gray-800">
+            <label className="text-xs font-semibold text-foreground">
               Category
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full h-11 px-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
             >
               <option>All categories</option>
               <option>Photo Studio</option>
@@ -111,13 +111,13 @@ export default function ExploreStudiosPage() {
 
           {/* Max Hourly Rate Filter */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-gray-800">
+            <label className="text-xs font-semibold text-foreground">
               Max hourly rate
             </label>
             <select
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full h-11 px-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
             >
               <option>Any price</option>
               <option value="40">Under $40</option>
@@ -138,7 +138,7 @@ export default function ExploreStudiosPage() {
 
         {/* Loading State */}
         {loading ? (
-          <div className="text-center py-20 text-gray-500">
+          <div className="text-center py-20 text-muted-foreground">
             Loading studios from database...
           </div>
         ) : filteredStudios.length > 0 ? (
@@ -150,8 +150,8 @@ export default function ExploreStudiosPage() {
           </div>
         ) : (
           /* Empty State */
-          <div className="text-center py-20 text-gray-500 bg-white rounded-3xl border border-gray-100 shadow-sm">
-            <p className="text-lg font-semibold text-gray-800">
+          <div className="text-center py-20 text-muted-foreground bg-card rounded-3xl border border-border shadow-sm">
+            <p className="text-lg font-semibold text-foreground">
               No studios found
             </p>
             <p className="text-sm mt-1">

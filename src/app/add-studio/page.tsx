@@ -114,14 +114,14 @@ export default function AddStudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f7f5] py-12 px-6 lg:px-20">
+    <div className="min-h-screen bg-[#f7f7f5] dark:bg-[#0b0f17] py-12 px-6 lg:px-20">
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Page Header */}
         <div className="space-y-1">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
             Add New Studio
           </h1>
-          <p className="text-gray-500 text-sm sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base">
             List your space for creators to discover and book.
           </p>
         </div>
@@ -129,12 +129,12 @@ export default function AddStudioPage() {
         {/* Form Container */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-gray-100 space-y-6"
+          className="bg-card p-8 sm:p-10 rounded-3xl shadow-sm border border-border space-y-6"
         >
           {/* Row 1: Title, Category, Hourly Rate, Security Deposit */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Title
               </label>
               <Input
@@ -145,12 +145,12 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, title: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Category
               </label>
               <select
@@ -158,7 +158,7 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, category: e.target.value })
                 }
-                className="w-full h-11 px-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                className="w-full h-11 px-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
                 <option value="Photo Studio">Photo Studio</option>
                 <option value="Film Stage">Film Stage</option>
@@ -169,7 +169,7 @@ export default function AddStudioPage() {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Hourly rate ($)
               </label>
               <Input
@@ -180,12 +180,12 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, price: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Security deposit ($)
               </label>
               <Input
@@ -196,7 +196,7 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, securityDeposit: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
           </div>
@@ -204,7 +204,7 @@ export default function AddStudioPage() {
           {/* Row 2: Max Capacity, Location, Image URL, Host Name, Host Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Max capacity
               </label>
               <Input
@@ -215,12 +215,12 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, maxCapacity: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Location / Address
               </label>
               <Input
@@ -231,12 +231,12 @@ export default function AddStudioPage() {
                 onChange={(e) =>
                   setFormData({ ...formData, location: e.target.value })
                 }
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Image
               </label>
               <Input
@@ -248,45 +248,45 @@ export default function AddStudioPage() {
                     setImageFile(e.target.files[0]);
                   }
                 }}
-                className="h-11 rounded-xl border-gray-200 bg-white text-sm"
+                className="h-11 rounded-xl border-border bg-card text-sm"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Host name
               </label>
               <Input
                 type="text"
                 readOnly
                 value={user?.name || "Loading..."}
-                className="h-11 rounded-xl border-gray-200 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                className="h-11 rounded-xl border-border bg-muted text-muted-foreground text-sm cursor-not-allowed"
               />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
-              <label className="text-xs font-semibold text-gray-800">
+              <label className="text-xs font-semibold text-foreground">
                 Host email
               </label>
               <Input
                 type="email"
                 readOnly
                 value={user?.email || "Loading..."}
-                className="h-11 rounded-xl border-gray-200 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                className="h-11 rounded-xl border-border bg-muted text-muted-foreground text-sm cursor-not-allowed"
               />
             </div>
           </div>
 
           {/* Amenities Checkboxes */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-gray-800 block">
+            <label className="text-xs font-semibold text-foreground block">
               Amenities
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
               {amenitiesList.map((amenity) => (
                 <label
                   key={amenity}
-                  className="flex items-center gap-2.5 text-sm text-gray-700 cursor-pointer"
+                  className="flex items-center gap-2.5 text-sm text-foreground cursor-pointer"
                 >
                   <input
                     type="checkbox"
@@ -302,7 +302,7 @@ export default function AddStudioPage() {
 
           {/* Detailed Overview */}
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-gray-800">
+            <label className="text-xs font-semibold text-foreground">
               Detailed overview
             </label>
             <textarea
@@ -313,7 +313,7 @@ export default function AddStudioPage() {
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
               }
-              className="w-full p-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full p-3 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-amber-500"
             ></textarea>
           </div>
 
@@ -321,7 +321,7 @@ export default function AddStudioPage() {
           <Button
             type="submit"
             disabled={loading}
-            className="w-full sm:w-auto px-8 h-11 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold rounded-xl text-sm transition-all shadow-none cursor-pointer"
+            className="w-full sm:w-auto px-8 h-11 bg-[#f59e0b] hover:bg-[#d97706] text-foreground font-semibold rounded-xl text-sm transition-all shadow-none cursor-pointer"
           >
             {loading ? "Adding Studio..." : "Add Studio"}
           </Button>

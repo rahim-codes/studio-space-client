@@ -38,7 +38,7 @@ export default function UserInfo() {
   // Loading Skeleton
   if (isPending) {
     return (
-      <div className="w-24 h-9 bg-gray-800 animate-pulse rounded-xl"></div>
+      <div className="w-24 h-9 bg-muted animate-pulse rounded-xl dark:bg-gray-800"></div>
     );
   }
 
@@ -52,7 +52,7 @@ export default function UserInfo() {
 
     return (
       <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-2.5 py-1.5 px-3 rounded-xl bg-[#111827] border border-gray-800 hover:border-gray-700 transition-all cursor-pointer outline-none">
+        <DropdownMenuTrigger className="flex items-center gap-2.5 py-1.5 px-3 rounded-xl bg-card border border-border hover:border-amber-500/50 transition-all cursor-pointer outline-none dark:bg-[#111827] dark:border-gray-800 dark:hover:border-gray-700">
           <Avatar className="w-8 h-8 rounded-lg border border-amber-500/30">
             <AvatarImage
               src={user.image || ""}
@@ -63,7 +63,7 @@ export default function UserInfo() {
               {firstName.charAt(0).toUpperCase()}
             </AvatarFallback>
           </Avatar>
-          <span className="text-sm font-semibold text-gray-200">
+          <span className="text-sm font-semibold text-foreground dark:text-gray-200">
             {firstName}
           </span>
         </DropdownMenuTrigger>
@@ -71,14 +71,14 @@ export default function UserInfo() {
         {/* Dropdown Menu Content */}
         <DropdownMenuContent
           align="end"
-          className="w-56 rounded-2xl bg-[#111827] border border-gray-800 text-gray-200 p-2 shadow-2xl z-50"
+          className="w-56 rounded-2xl bg-popover border border-border text-popover-foreground p-2 shadow-2xl z-50 dark:bg-[#111827] dark:border-gray-800 dark:text-gray-200"
         >
           {/* User Info Header Inside Dropdown */}
-          <div className="px-3 py-2 space-y-0.5 border-b border-gray-800 mb-1">
-            <p className="font-bold text-sm text-white truncate">
+          <div className="px-3 py-2 space-y-0.5 border-b border-border mb-1 dark:border-gray-800">
+            <p className="font-bold text-sm text-foreground truncate dark:text-white">
               {displayName}
             </p>
-            <p className="text-xs text-gray-400 truncate">{user.email}</p>
+            <p className="text-xs text-muted-foreground truncate dark:text-gray-400">{user.email}</p>
           </div>
 
           {/* Navigation Links with Active Route Indicator */}
@@ -88,7 +88,7 @@ export default function UserInfo() {
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/dashboard")
                   ? "bg-amber-500 text-black font-semibold"
-                  : "hover:bg-gray-800/60 text-gray-300 hover:text-white"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground dark:hover:bg-gray-800/60 dark:text-gray-300 dark:hover:text-white"
               }`}
             >
               📊 Dashboard
@@ -101,7 +101,7 @@ export default function UserInfo() {
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/studios/add")
                   ? "bg-amber-500 text-black font-semibold"
-                  : "hover:bg-gray-800/60 text-gray-300 hover:text-white"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground dark:hover:bg-gray-800/60 dark:text-gray-300 dark:hover:text-white"
               }`}
             >
               ➕ Add New Studio
@@ -114,7 +114,7 @@ export default function UserInfo() {
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/my-listings")
                   ? "bg-amber-500 text-black font-semibold"
-                  : "hover:bg-gray-800/60 text-gray-300 hover:text-white"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground dark:hover:bg-gray-800/60 dark:text-gray-300 dark:hover:text-white"
               }`}
             >
               🏢 My Studio Listings
@@ -127,19 +127,19 @@ export default function UserInfo() {
               className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-medium transition-colors cursor-pointer ${
                 isActive("/my-bookings")
                   ? "bg-amber-500 text-black font-semibold"
-                  : "hover:bg-gray-800/60 text-gray-300 hover:text-white"
+                  : "hover:bg-muted text-muted-foreground hover:text-foreground dark:hover:bg-gray-800/60 dark:text-gray-300 dark:hover:text-white"
               }`}
             >
               📅 My Bookings
             </Link>
           </DropdownMenuItem>
 
-          <DropdownMenuSeparator className="bg-gray-800 my-1" />
+          <DropdownMenuSeparator className="bg-border my-1 dark:bg-gray-800" />
 
           {/* Logout Button */}
           <DropdownMenuItem
             onClick={handleSignOut}
-            className="flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-semibold text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors cursor-pointer focus:bg-red-500/10 focus:text-red-300"
+            className="flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-500/10 hover:text-red-700 transition-colors cursor-pointer focus:bg-red-500/10 focus:text-red-700 dark:text-red-400 dark:hover:text-red-300 dark:focus:text-red-300"
           >
             🚪 Logout
           </DropdownMenuItem>
@@ -153,7 +153,7 @@ export default function UserInfo() {
     <div className="flex items-center gap-3">
       <Link
         href="/login"
-        className="text-sm font-semibold text-gray-300 hover:text-white hover:bg-gray-800/60 rounded-xl px-4 py-2"
+        className="text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-muted rounded-xl px-4 py-2 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/60"
       >
         Login
       </Link>
