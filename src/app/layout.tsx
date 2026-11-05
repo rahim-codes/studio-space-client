@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StudioSpace",
   description: "Book and explore studios",
+  icons: {
+    icon: "/public/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
