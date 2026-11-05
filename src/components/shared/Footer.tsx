@@ -13,7 +13,9 @@ export default function Footer() {
               <span className="flex size-9 items-center justify-center rounded-full bg-amber-500">
                 <BasketballIcon className="size-5 text-[#0B1120]" />
               </span>
-              <span className="text-xl font-bold text-foreground dark:text-white">StudioSpace</span>
+              <span className="text-xl font-bold text-foreground dark:text-white">
+                StudioSpace
+              </span>
             </Link>
           </div>
           <p className="text-muted-foreground text-sm max-w-sm leading-relaxed dark:text-gray-400">
@@ -24,7 +26,9 @@ export default function Footer() {
 
         {/* Column 2: Quick Links */}
         <div className="space-y-4">
-          <h4 className="text-foreground font-semibold text-base dark:text-white">Quick Links</h4>
+          <h4 className="text-foreground font-semibold text-base dark:text-white">
+            Quick Links
+          </h4>
           <ul className="space-y-2.5 text-sm text-muted-foreground dark:text-gray-400">
             <li>
               <Link href="/" className="hover:text-[#f59e0b] transition-colors">
@@ -33,7 +37,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/studios"
+                href="/explore-studio"
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Explore Studios
@@ -66,7 +70,7 @@ export default function Footer() {
           <ul className="space-y-2.5 text-sm text-muted-foreground dark:text-gray-400">
             <li>
               <Link
-                href="/categories/photo-studios"
+                href={`/category/${encodeURIComponent("Photo Studio")}`}
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Photo Studios
@@ -74,7 +78,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/categories/sound-stages"
+                href={`/category/${encodeURIComponent("Music Suite")}`}
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Sound Stages
@@ -82,7 +86,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/categories/podcast-rooms"
+                href={`/category/${encodeURIComponent("Podcast Lounge")}`}
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Podcast Rooms
@@ -90,7 +94,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/categories/music-suites"
+                href={`/category/${encodeURIComponent("Music Suite")}`}
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Music Suites
@@ -98,7 +102,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/categories/art-workshops"
+                href={`/category/${encodeURIComponent("Workshop")}`}
                 className="hover:text-[#f59e0b] transition-colors"
               >
                 Art Workshops
@@ -109,9 +113,14 @@ export default function Footer() {
 
         {/* Column 4: Newsletter */}
         <div className="space-y-4">
-          <h4 className="text-foreground font-semibold text-base dark:text-white">Newsletter</h4>
+          <h4 className="text-foreground font-semibold text-base dark:text-white">
+            Newsletter
+          </h4>
           <div className="space-y-3">
-            <label htmlFor="email" className="block text-xs text-muted-foreground dark:text-gray-400">
+            <label
+              htmlFor="email"
+              className="block text-xs text-muted-foreground dark:text-gray-400"
+            >
               Email address
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
