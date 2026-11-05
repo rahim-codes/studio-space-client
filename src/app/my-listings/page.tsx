@@ -35,19 +35,10 @@ export default function MyListingsPage() {
 
   // Fetch logged-in user's listings
   const fetchMyListings = async (email: string) => {
-    // const jwtToken = await auth.api.getToken({
-    //   headers: await headers(),
-    // });
-    // console.log(jwtToken?.token);
     try {
-      const res = await fetch(`http://localhost:8000/my-studios/${email}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        cache: "no-store",
-      });
+      const res = await fetch(
+        `https://studio-space-server-ten.vercel.app/my-studios/${email}`,
+      );
       const data = await res.json();
       if (data.success) {
         setStudios(data.data);
@@ -86,10 +77,13 @@ export default function MyListingsPage() {
     if (!selectedStudioId) return;
 
     try {
-      const res = await fetch(`/api/studios/${selectedStudioId}`, {
-        method: "DELETE",
-        credentials: "include",
-      });
+      const res = await fetch(
+        `https://studio-space-server-ten.vercel.app/studios/${selectedStudioId}`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        },
+      );
 
       if (res.status === 401) {
         toast.error("Please sign in to delete your studio.");

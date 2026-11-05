@@ -53,14 +53,17 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
     };
 
     try {
-      const res = await fetch("/api/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://studio-space-server-ten.vercel.app/bookings",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(bookingPayload),
         },
-        credentials: "include",
-        body: JSON.stringify(bookingPayload),
-      });
+      );
 
       if (res.status === 401) {
         toast.error("Please sign in to book this workspace.");

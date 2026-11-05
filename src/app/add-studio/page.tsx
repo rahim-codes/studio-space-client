@@ -91,14 +91,17 @@ export default function AddStudioPage() {
         hostEmail: user?.email || "anonymous@gmail.com",
       };
       console.log(studioPayload);
-      const res = await fetch("/api/studios", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://studio-space-server-ten.vercel.app/studios",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(studioPayload),
         },
-        credentials: "include",
-        body: JSON.stringify(studioPayload),
-      });
+      );
 
       if (res.status === 401) {
         toast.error("Please sign in to add a studio.");

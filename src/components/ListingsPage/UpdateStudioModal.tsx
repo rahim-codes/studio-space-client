@@ -36,7 +36,7 @@ export default function UpdateStudioModal({
     if (isOpen && studioId) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(true);
-      fetch(`http://localhost:8000/studios/${studioId}`)
+      fetch(`https://studio-space-server-ten.vercel.app/studios/${studioId}`)
         .then((res) => res.json())
         .then((data) => {
           const studio = data.data || data;
@@ -67,13 +67,16 @@ export default function UpdateStudioModal({
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:8000/studios/${studioId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `https://studio-space-server-ten.vercel.app/studios/${studioId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       const data = await res.json();
       if (data.success) {

@@ -28,7 +28,9 @@ export default function MyBookingsPage() {
   // Fetch bookings for logged-in user
   const fetchMyBookings = async (email: string) => {
     try {
-      const res = await fetch(`http://localhost:8000/bookings/${email}`);
+      const res = await fetch(
+        `https://studio-space-server-ten.vercel.app/bookings/${email}`,
+      );
       const data = await res.json();
       if (data.success) {
         setBookings(data.data);
@@ -51,13 +53,16 @@ export default function MyBookingsPage() {
   // Handle Cancel Booking
   const handleCancelBooking = async (bookingId: string) => {
     try {
-      const res = await fetch(`http://localhost:8000/bookings/${bookingId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `https://studio-space-server-ten.vercel.app/bookings/${bookingId}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: "Cancelled" }),
         },
-        body: JSON.stringify({ status: "Cancelled" }),
-      });
+      );
 
       const data = await res.json();
       if (data.success) {
@@ -116,7 +121,9 @@ export default function MyBookingsPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5] dark:bg-[#0b0f17]">
-        <p className="text-muted-foreground font-medium">Loading your bookings...</p>
+        <p className="text-muted-foreground font-medium">
+          Loading your bookings...
+        </p>
       </div>
     );
   }

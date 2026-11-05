@@ -21,9 +21,12 @@ interface Studio {
 // Server-side data fetching
 async function getStudio(id: string): Promise<Studio | null> {
   try {
-    const res = await fetch(`http://localhost:8000/studios/${id}`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `https://studio-space-server-ten.vercel.app/studios/${id}`,
+      {
+        cache: "no-store",
+      },
+    );
     if (!res.ok) return null;
     const data = await res.json();
     console.log(data);
@@ -107,8 +110,8 @@ export default async function StudioDetailsPage({ params }: PageProps) {
             </h1>
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground font-medium">
               <span className="flex items-center gap-1">
-                <MapPin className="w-4 h-4 text-muted-foreground" /> {studio.location},
-                Dhaka
+                <MapPin className="w-4 h-4 text-muted-foreground" />{" "}
+                {studio.location}, Dhaka
               </span>
               <span>•</span>
               <span className="flex items-center gap-1">

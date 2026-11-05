@@ -11,7 +11,7 @@ interface Studio {
 }
 
 export default async function FeaturedStudios() {
-  const res = await fetch("http://localhost:8000/studios");
+  const res = await fetch("https://studio-space-server-ten.vercel.app/studios");
   const responseData = await res.json();
 
   const studioArray: Studio[] = responseData.data || [];

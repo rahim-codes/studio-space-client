@@ -22,7 +22,7 @@ interface CategoryPageProps {
 async function getCategoryStudios(category: string): Promise<Studio[]> {
   try {
     const res = await fetch(
-      `http://localhost:8000/studios/category/${encodeURIComponent(category)}`,
+      `https://studio-space-server-ten.vercel.app/studios/category/${encodeURIComponent(category)}`,
       {
         cache: "no-store",
       },

@@ -27,7 +27,9 @@ export default function ExploreStudiosPage() {
   useEffect(() => {
     async function fetchStudios() {
       try {
-        const res = await fetch("http://localhost:8000/studios");
+        const res = await fetch(
+          "https://studio-space-server-ten.vercel.app/studios",
+        );
         if (!res.ok) {
           throw new Error("Failed to fetch studios");
         }
