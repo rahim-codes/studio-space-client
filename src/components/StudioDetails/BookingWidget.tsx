@@ -53,13 +53,19 @@ export default function BookingWidget({ studio }: BookingWidgetProps) {
     };
 
     try {
-      const res = await fetch("http://localhost:8000/bookings", {
+      const res = await fetch("/api/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(bookingPayload),
       });
+
+      if (res.status === 401) {
+        toast.error("Please sign in to book this workspace.");
+        return;
+      }
 
       const data = await res.json();
 

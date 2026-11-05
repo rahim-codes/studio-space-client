@@ -35,8 +35,19 @@ export default function MyListingsPage() {
 
   // Fetch logged-in user's listings
   const fetchMyListings = async (email: string) => {
+    // const jwtToken = await auth.api.getToken({
+    //   headers: await headers(),
+    // });
+    // console.log(jwtToken?.token);
     try {
-      const res = await fetch(`http://localhost:8000/my-studios/${email}`);
+      const res = await fetch(`http://localhost:8000/my-studios/${email}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        cache: "no-store",
+      });
       const data = await res.json();
       if (data.success) {
         setStudios(data.data);
@@ -50,13 +61,11 @@ export default function MyListingsPage() {
   };
 
   useEffect(() => {
-    // সেশন লোড শেষ হলে এবং ইউজার থাকলে ডেটা ফেচ হবে
     if (!isPending) {
       if (user?.email) {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchMyListings(user?.email);
       } else {
-        // সিঙ্ক্রোনাস রেন্ডারিং এড়াতে এবং সরাসরি setState কল রোধ করতে
         const timer = setTimeout(() => {
           setLoading(false);
           router.push("/sign-in");
@@ -77,12 +86,16 @@ export default function MyListingsPage() {
     if (!selectedStudioId) return;
 
     try {
-      const res = await fetch(
-        `http://localhost:8000/studios/${selectedStudioId}`,
-        {
-          method: "DELETE",
-        },
-      );
+      const res = await fetch(`/api/studios/${selectedStudioId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      if (res.status === 401) {
+        toast.error("Please sign in to delete your studio.");
+        return;
+      }
+
       const data = await res.json();
 
       if (data.success) {
@@ -109,7 +122,9 @@ export default function MyListingsPage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f7f7f5] dark:bg-[#0b0f17]">
-        <p className="text-muted-foreground font-medium">Loading your listings...</p>
+        <p className="text-muted-foreground font-medium">
+          Loading your listings...
+        </p>
       </div>
     );
   }

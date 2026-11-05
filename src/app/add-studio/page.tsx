@@ -91,13 +91,19 @@ export default function AddStudioPage() {
         hostEmail: user?.email || "anonymous@gmail.com",
       };
       console.log(studioPayload);
-      const res = await fetch("http://localhost:8000/studios", {
+      const res = await fetch("/api/studios", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(studioPayload),
       });
+
+      if (res.status === 401) {
+        toast.error("Please sign in to add a studio.");
+        return;
+      }
 
       if (!res.ok) {
         throw new Error("Failed to add studio");

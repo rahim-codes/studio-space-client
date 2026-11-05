@@ -16,14 +16,19 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
-  plugins: [
-    jwt({
-      jwt: {
-        // টোকেনের এক্সপায়ার টাইম
-        expirationTime: "7d",
-      },
-    }),
-  ],
+  plugins: [jwt()],
+  advanced: {
+    defaultCookieAttributes: {
+      httpOnly: true,
+    },
+  },
+  session: {
+    cookieCache: {
+      enabled: true,
+      maxAge: 7 * 24 * 60 * 60,
+      strategy: "jwt",
+    },
+  },
   database: mongodbAdapter(db, {
     client,
   }),
